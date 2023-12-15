@@ -348,8 +348,8 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="footer">
-            Propertico
-                <a href="dashh">Propertico </a>
+            assignment
+                <a href="dashh">assignment </a>
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
