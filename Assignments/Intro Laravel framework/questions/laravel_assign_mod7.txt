@@ -1,0 +1,57 @@
+MODULE 7 (LARAVEL)
+
+---------------------
+
+QUESTIONS : 
+
+Ques) How to Pass multiple variable in route.
+
+Ans : 
+
+	
+
+ :-> first we create a class with multiple variable
+
+class UserController extends Controller 			
+{
+
+          @return \Illuminate\Http\Response
+
+        public function show(Request $request, $user_id, $post_id)
+        {
+                dd($user_id, $post_id);
+            }
+        }
+
+
+then we make the routeusing multiple variable
+
+Route::get('users/{user_id}/posts/{post_id}',[UserController::class, 'show'])->name("users.posts.show");
+
+
+
+-------------------------------------
+
+Ques) How to pass variable which can be null in route?
+
+Ans : 
+	by making the variable = null in the function we can make it null 
+	for example :
+
+	public function index($customer_id= null, $employee_id= null)
+	{
+		
+	}
+	
+
+------------------------------------------
+
+Ques) How to remove route caching
+
+Ans : 
+	by using this command in terminal we can clear route cache 
+
+	php artisan route:cache 
+
+
+----------------------------------------------

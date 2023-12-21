@@ -227,7 +227,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="adminhome"
+                  href="imageupload"
                   aria-expanded="false"
                   ><span class="hide-menu">Image Upload</span></a
                 >

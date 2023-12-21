@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,16 +8,14 @@
         <title>Document</title>
     </head>
 <body>
-    <h1>login page</h1>
+    <a href="home">back to home</a>
 
-<a href="home">back to home</a>
     <fieldset>
-        <legend>login part</legend>
+        <legend>macro try</legend>
         <form action="" method="POST">
            @csrf
-            <label for="email">Email  : </label><input type="email" name="email" id="email"> <br>
-            <label for="password">Password  : </label><input type="password" name="password" id="password"> <br>
-            <button type="submit" name="log">login here</button>
+            <label for="name">search Name  : </label><input type="text" name="name" id="name"> <br>
+            <button type="submit" name="search">search now</button>
 
         </form>
     </fieldset>
