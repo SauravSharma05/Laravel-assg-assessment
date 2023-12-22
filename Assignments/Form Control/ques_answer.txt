@@ -1,0 +1,43 @@
+QUESTIONS
+-----------------
+
+
+Ques) Explain ORM
+
+Ans : 
+	Object relational mapper 
+	- used to work with database when data is represented as an object
+	- we can perform CRUD operations with ORM
+	- it connects the oops and data representation in database
+
+
+---------
+
+Ques) Explain - Eloquent Relationships
+
+Ans : 
+	we can connect our data with other data or relating two data in different table using the eloquent relationships.
+
+	One To One
+	One To Many	
+	Many To Many
+	Has Many 
+
+
+---------------
+
+Ques) What is Eager Loading and lazy loading?
+
+Ans : 
+	
+	A) Eager loading
+	-  used to retrieve all the required data at once
+	- we can fetch data with main model data in single query using "with()" method
+	
+
+	B) Lazy loading
+	- used to retrieve related data only when it is needed
+	- we can get only related things only as per our requirement, getting only one 		  item at a time
+
+
+------------------------
