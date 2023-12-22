@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EmployeeController extends Controller
 {
@@ -34,6 +35,12 @@ class EmployeeController extends Controller
         $user->empid = $request->empid;
         $user->dept = $request->dept;
         $user->save();
+        $details = [
+            'title' => 'Welcome to our website',
+            'body' => 'This is a body of email'
+        ];
+
+        Mail::to($request->email)->send(new \App\Mail\Mailtry($details));
 
         return redirect('addemp');
 

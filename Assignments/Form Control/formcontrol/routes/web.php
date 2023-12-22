@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,16 @@ Route::post('/emplist/{id}',[EmployeeController::class,'emplist_del']);
 
 Route::get('/updateemp',[EmployeeController::class,'emplist_del']);
 Route::post('/updateemp/{id}',[EmployeeController::class,'emplist_del']);
+
+
+Route::get('send-mail', function () {
+
+        $details = [
+            'title' => 'hello',
+            'body' => 'hi, This is for testing email using smtp'
+        ];
+
+        Mail::to('user@gmail.com')->send(new \App\Mail\Mailtry($details));
+
+        dd("Email is Sent.");
+    });
