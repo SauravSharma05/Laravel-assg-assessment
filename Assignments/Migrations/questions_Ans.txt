@@ -1,0 +1,12 @@
+Questions
+---------
+
+Q1) How to do config database in laravel?
+
+Ans : 
+
+	to config database in Laravel, we have to go to (app/config/database.php) and can change the username, password, database name as per our own requirements.
+
+
+---------------------
+
