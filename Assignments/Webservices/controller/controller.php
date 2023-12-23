@@ -20,14 +20,13 @@ class controller extends model
                     // print_r($_REQUEST);
                     if($_SERVER['REQUEST_METHOD'] == "POST")  {
                         $FormDataObject = json_decode(file_get_contents('php://input'));
-                        // print_r($FormDataObject);
-
-                        // $FormDataObject = $_REQUEST;
-                        // $FormDataObject = array_pop($FormDataObject);
-                        $FormDataObject = array(
-                            "name" => $FormDataObject->name,
-                            "email" => $FormDataObject->email,
-                            "password" => $FormDataObject->password,
+                         $FormDataObject = array(
+                            "name" => $_POST['name'],
+                            // "name" => $FormDataObject->name,
+                            "email" => $_POST['email'],
+                            // "email" => $FormDataObject->email,
+                            "password" => $_POST['password'],
+                            // "password" => $FormDataObject->password,
                         );
                         $Response = $this->insert("users", $FormDataObject);
                         // echo json_encode($Response);    
@@ -38,17 +37,56 @@ class controller extends model
                     break;
 
                 case "/login":
-
-                    require_once('view/login.php');
+                    $data = json_decode(file_get_contents('php://input'));
+                    if ($_SERVER['REQUEST_METHOD'] == "POST")
+                    {
+                            $email = $_POST['email'];
+                            $password = $_POST['password'];
+                        
+                        $this->login($email, $password);
+                        echo json_encode($data);
+                        header('location:home');
+                    } else {
+                               
+                            }
+                            require_once('view/login.php');
                     break;
 
-                case "/upload":
+                 case "/upload":
+                    
+                    
+                    if($_SERVER['REQUEST_METHOD'] == "POST")
+                    {
 
+                        // print_r($_REQUEST);
+                        // print_r($_FILES);
+
+                        $location = "C:/xampp/htdocs/Laravel/Laravel-assg-assessment/Assignments/Webservices/images/" . basename($_FILES["images"]["name"]);
+                        // print_r($location);
+                        // 
+                        move_uploaded_file($_FILES["images"]["tmp_name"], $location);
+                        $ImageName = $_FILES["images"]["name"];
+                        // print_r($ImageName);
+                       
+                        $data = array(
+                            "name" => $_POST['name'],
+                            "images" => $ImageName,
+                        );
+                        print_r($data);
+                        $Response = $this->insert("images", $data);
+                        header('location:home');
+                        // echo json_encode($Response);
+                    }
+                    else
+                    {
+                        // Handle error case 
+                    }
                     require_once('view/upload.php');
                     break;
 
-                case "/gallery":
-
+                    case "/gallery":
+                        
+                    $Response = $this->select('images');
                     require_once('view/gallery.php');
                     break;
                 
@@ -61,7 +99,7 @@ class controller extends model
             header('location:home');
         }
 
-
+    
     }
 
 
