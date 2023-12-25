@@ -12,6 +12,9 @@
     <ul type="square">
         <li><a href="home">user homepage</a></li>
         <li><a href="adminhome">admin homepage</a></li>
+        <li><a href="musiclist">musiclist</a></li>
+        <li><a href="userlist">Userlist</a></li>
+
     </ul>
 <hr>
 

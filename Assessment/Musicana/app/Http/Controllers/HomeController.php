@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Music;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Music $music)
     {
-        return view('home');
+        $music = Music::All();
+        // dd($music);
+        return view('home', compact('music'));
     }
     public function registerpage()
     {
@@ -58,8 +62,15 @@ class HomeController extends Controller
     }
 
 
-    public function addmusic()
+    public function adminhome()
     {
-        return view('admin.addmusic');
+        return view('admin.adminhome');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        Session::flush();
+        return redirect('/home');
     }
 }

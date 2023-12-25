@@ -1,30 +1,30 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MusicController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', [HomeController::class, ('index')]);
 Route::get('/home', [HomeController::class, ('index')]);
 
 
-Route::get('/register', [HomeController::class, ('registerpage')]);
+Route::get('/register', [HomeController::class, ('registerpage')])->middleware('guest');
 Route::post('/register', [HomeController::class, ('registerdata')]);
 
 
-Route::get('/login', [HomeController::class, ('loginpage')]);
+Route::get('/login', [HomeController::class, ('loginpage')])->middleware('guest');
 Route::post('/login', [HomeController::class, ('loginvalidate')]);
 
+Route::get('/logout',[HomeController::class,'logout']);
+
+
+Route::get('/adminhome',[HomeController::class,'adminhome']);
 
 Route::get('/addmusic', [HomeController::class, ('addmusic')]);
+Route::post('/addmusic', [MusicController::class, ('addmusic_data')]);
 
+
+Route::get('/musiclist', [MusicController::class, ('musiclist')]);
+
+Route::get('/userlist', [MusicController::class, ('userlist')]);

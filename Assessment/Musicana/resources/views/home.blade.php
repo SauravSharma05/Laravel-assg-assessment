@@ -7,16 +7,44 @@
         <title>Musicana</title>
     </head>
     <body>
-    <h1>Musicana</h1>
-<hr>
-    <ul type="square">
+        <h1>Musicana</h1>
+        <hr>
+        <ul type="square">
+
         <li><a href="home">homepage</a></li>
+        @guest
         <li><a href="register">register</a></li>
         <li><a href="login">login</a></li>
+        @else
+        <li><a href="logout">logout</a></li>
+        @endguest
     </ul>
-<hr>
+    <hr>
 
 <fieldset>music section</fieldset>
+<br><br><hr>
+
+<table border="" cellspacing="0" cellpadding="0" width="70%">
+    <tr height="50px">
+        <th>S.no</th>
+        <th>Music Name</th>
+        <th>File</th>
+        <th>Review here</th>
+    </tr>
+    <?php
+    foreach ($music as $value)
+    { ?>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        <tr height="70px">
+            <th width="5%">{{ $value->id }}</th>
+            <th width="25%">{{ $value->name }}</th>
+            <th><audio controls><source src='uploads/{{ $value->music }}' type='audio/mpeg'></audio></th>
+            <th width="30%"><button type="submit" name="submit">add review</button></th>
+        </tr>
+    </form>
+<?php } ?>
+</table>
 
 </body>
 </html>
