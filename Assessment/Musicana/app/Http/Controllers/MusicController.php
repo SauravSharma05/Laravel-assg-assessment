@@ -12,9 +12,9 @@ class MusicController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function addmusic()
     {
-        //
+        return view('admin.addmusic');
     }
 
     /**
@@ -79,8 +79,10 @@ class MusicController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Music $music)
+    public function delmusic(request $request, $id)
     {
-        //
+        $data = Music::findOrFail($id);
+        $data->delete();
+        return redirect('musiclist');
     }
 }

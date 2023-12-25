@@ -29,7 +29,8 @@
         <th>S.no</th>
         <th>Music Name</th>
         <th>File</th>
-        <th>Review here</th>
+        <th>Action</th>
+        <th>Review section</th>
     </tr>
     <?php
     foreach ($music as $value)
@@ -38,9 +39,10 @@
     <form action="" method="POST" enctype="multipart/form-data">
         <tr height="70px">
             <th width="5%">{{ $value->id }}</th>
-            <th width="25%">{{ $value->name }}</th>
+            <th width="20%">{{ $value->name }}</th>
             <th><audio controls><source src='uploads/{{ $value->music }}' type='audio/mpeg'></audio></th>
-            <th width="30%"><button type="submit" name="submit">add review</button></th>
+            <th width="15%"><button type="submit" value="{{ $value->id }}" name="submit">add review</button></th>
+            <th width="30%"></th>
         </tr>
     </form>
 <?php } ?>
