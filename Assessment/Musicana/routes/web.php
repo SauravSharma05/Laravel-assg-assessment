@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MusicController;
+use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,11 +20,16 @@ Route::post('/login', [HomeController::class, ('loginvalidate')]);
 
 Route::get('/logout',[HomeController::class,'logout']);
 
-Route::get('/forgot-password',[HomeController::class,'forgotpassword']);
+Route::get('/forgotpassword',[PasswordResetController::class,'forgotpassword']);
+Route::post('/forgotpassword',[PasswordResetController::class,'storeforget']);
+
+Route::get('/resetpass/{token}',[PasswordResetController::class,'resetpass']);
+Route::post('/resetpass/{token}',[PasswordResetController::class,'resetpass_store']);
 
 
 Route::get('/addreview',[ReviewController::class,'addreview']);
 
+Route::get('/user_profile/{id}', [HomeController::class, ('userlist_id')]);
 
 Route::get('/adminhome',[HomeController::class,'adminhome']);
 

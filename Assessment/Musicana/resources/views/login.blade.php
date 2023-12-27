@@ -16,6 +16,8 @@
            @csrf
             <label for="email">Email  : </label><input type="email" name="email" id="email"> <br>
             <label for="password">Password  : </label><input type="password" name="password" id="password"> <br>
+            <label for="fpass">Forgot your password ? </label><a href="forgotpassword">CLICK HERE </a> <br>
+
             <button type="submit" name="log">login here</button>
 
         </form>

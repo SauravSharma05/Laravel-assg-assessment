@@ -6,15 +6,18 @@ use App\Models\Music;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
-    public function index(Music $music)
+    public function index(Music $music, User $user)
     {
         $music = Music::All();
+        $user = User::all();    
+
         // dd($music);
-        return view('home', compact('music'));
+        return view('home', compact('music','user'));
     }
     public function registerpage()
     {
@@ -74,8 +77,13 @@ class HomeController extends Controller
         return redirect('/home');
     }
 
-    public function forgotpassword()
+    public function userlist_id($id,User $user)
     {
-        return view('forgotpassword');
+        $user = User::findOrFail($id);
+        $user->get();
+        return view('user_profile', compact('user'));
     }
+
+
+
 }

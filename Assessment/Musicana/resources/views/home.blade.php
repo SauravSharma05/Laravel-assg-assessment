@@ -17,6 +17,8 @@
         <li><a href="login">login</a></li>
         @else
         <li><a href="logout">logout</a></li>
+        {{-- <li><a href="user_profile/{{ $user->email }}">USER PROFILE</a></li> --}}
+
         @endguest
     </ul>
     <hr>

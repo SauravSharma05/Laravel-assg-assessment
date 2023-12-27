@@ -17,6 +17,7 @@
             <label for="name">Name  : </label><input type="text" name="name" id="name" value="name"> <br>
             <label for="email">Email  : </label><input type="email" name="email" id="email" value="email"> <br>
             <label for="password">Password  : </label><input type="password" name="password" id="password" value="password"> <br>
+
             <button type="submit" name="reg">Register here</button>
 
         </form>
