@@ -73,4 +73,9 @@ class HomeController extends Controller
         Session::flush();
         return redirect('/home');
     }
+
+    public function forgotpassword()
+    {
+        return view('forgotpassword');
+    }
 }

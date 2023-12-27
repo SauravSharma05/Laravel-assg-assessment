@@ -19,6 +19,8 @@ Route::post('/login', [HomeController::class, ('loginvalidate')]);
 
 Route::get('/logout',[HomeController::class,'logout']);
 
+Route::get('/forgot-password',[HomeController::class,'forgotpassword']);
+
 
 Route::get('/addreview',[ReviewController::class,'addreview']);
 
