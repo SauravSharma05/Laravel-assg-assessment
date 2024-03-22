@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/',[HomeController::class,'index']);
+Route::get('/home',[HomeController::class,'index']);
+
+Route::get('/add-author',[HomeController::class,'register']);
+
+Route::get('/verify-author',[HomeController::class,'login']);
+Route::post('/verify-author',[HomeController::class,'verify']);
+
+Route::get('/logout',[HomeController::class,'logout']);
+
+Route::get('/add-article',[ArticleController::class,'index']);
+
+Route::delete('/delete/{id}',[ArticleController::class,'delete']);
