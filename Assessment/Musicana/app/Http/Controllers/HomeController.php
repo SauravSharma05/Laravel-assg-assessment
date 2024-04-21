@@ -13,8 +13,8 @@ class HomeController extends Controller
 {
     public function index(Music $music, User $user)
     {
-        $music = Music::All();
-        $user = User::all();    
+        $music = Music::All();              //ORM
+        $user = User::all();
 
         // dd($music);
         return view('home', compact('music','user'));
@@ -25,7 +25,7 @@ class HomeController extends Controller
     }
     public function registerdata(request $request)
     {
-            $user = new User();
+            $user = new User();                         //  ORM Data Insert
             $user->name = $request->name;
             $user->email = $request->email;
             $user->password = $request->password;

@@ -13,7 +13,7 @@
 
         <li><a href="home">homepage</a></li>
         @guest
-        <li><a href="register">register</a></li>
+         <li><a href="register">register</a></li>                    {{-- User still not login --}}
         <li><a href="login">login</a></li>
         @else
         <li><a href="logout">logout</a></li>
