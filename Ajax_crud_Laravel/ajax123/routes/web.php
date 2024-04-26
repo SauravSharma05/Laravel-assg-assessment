@@ -20,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[UserController::class,('index')]);
 Route::post('/store',[UserController::class,('store')])->name('store');
+
+Route::get('/fetchall',[UserController::class,('fetchall')])->name('fetchall');
