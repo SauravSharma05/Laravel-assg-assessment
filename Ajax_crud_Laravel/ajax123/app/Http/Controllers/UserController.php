@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\helloMail;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -89,6 +91,15 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
+    public function sendmail()
+    {
+            $from = 'sauravsharma0512@gmail.com';
+            $message1 = 'hello moto';
+            $subject = 'hello haha';
+
+            $res = Mail::to($from)->send(new helloMail($message1, $subject));
+
+    }
     public function show(string $id)
     {
         //

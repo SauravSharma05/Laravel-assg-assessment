@@ -24,3 +24,7 @@ Route::post('/store',[UserController::class,('store')])->name('store');
 Route::get('/fetchall',[UserController::class,('fetchall')])->name('fetchall');
 
 Route::get('/edit',[UserController::class,('edit')])->name('edit');
+
+
+
+Route::get('/sendmail',[UserController::class,('sendmail')]);
